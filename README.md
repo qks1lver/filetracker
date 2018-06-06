@@ -1,1 +1,38 @@
-filetracker
+# filetracker.py
+
+Remember that time when you have a bunch of files in a folder that you forgot, and now you see a file that might actually be the same file in that folder that you forgot...
+Worry not! Because this silly little program will help you keep track of the files you already have and where they were.
+
+So easy:
+1. Copy filetracker to where ever you want it
+2. Enter $ python3 filetracker.py \<directory-with-new-files\> \<tracker-file\>
+
+```
+$ python3 filetracker.py foo/ bar.txt
+```
+
+If all filenames are new, then it just shows how many files you are keeping track.
+
+```
+$ python3 filetracker.py ../tmp/ inventory
+File count: 3
+```
+
+If there are files with names that already exist, they won't be added to the tracker-file. Instead, their filename and previous location will be shown
+
+```
+$ python3 filetracker.py ../tmp/ inventory
+Duplicated: file01.jpg @ ../tmp/
+Duplicated: file02.txt @ ../tmp/
+Duplicated: file03.csv @ ../tmp/
+File count: 3
+```
+
+The tracker-file is just a tab-delimited file containing a list of the filenames and their directory path
+
+```
+$ more inventory
+file01.jpg	../tmp/
+file02.txt	../tmp/
+file03.csv	../tmp/
+```
